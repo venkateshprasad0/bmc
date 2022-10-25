@@ -37,11 +37,14 @@ public class UserAdminController {
 	//create a post method named createUser with return type as ResponseEntity
 		//define the method parameter user of type User. Set it final. Use @RequestBody for mapping.
 		//declare InvalidInputException using throws keyword
-		
-		//register the user
+  		//register the user
 	
 		//return http response with status set to OK
-	
+
+	@PostMapping(path="register")
+	public ResponseEntity<User> createUser(@RequestBody User user) throws InvalidInputException{
+		return ResponseEntity.ok(userService.register(user));
+	}
 	
 
 

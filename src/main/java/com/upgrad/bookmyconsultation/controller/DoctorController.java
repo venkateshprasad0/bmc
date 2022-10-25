@@ -30,6 +30,7 @@ public class DoctorController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Doctor> getDoctorDetails(@PathVariable String id) {
+		System.out.println("Doctor Entity "+ service.getDoctor(id));
 		return ResponseEntity.ok(service.getDoctor(id));
 	}
 

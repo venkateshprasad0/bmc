@@ -7,15 +7,9 @@ import com.upgrad.bookmyconsultation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/users")
 public class UserAdminController {
@@ -43,6 +37,7 @@ public class UserAdminController {
 
 	@PostMapping(path="register")
 	public ResponseEntity<User> createUser(@RequestBody User user) throws InvalidInputException{
+		System.out.println("User registration " + user);
 		return ResponseEntity.ok(userService.register(user));
 	}
 	

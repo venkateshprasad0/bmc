@@ -91,6 +91,7 @@ public class DoctorService {
 	}
 
 	public Doctor getDoctor(String id) {
-		return null;
+		log.info("Fetching doctor from the database");
+		return doctorRepository.findDoctorById(id);
 	}
 }

@@ -12,9 +12,8 @@ public interface UserRepository extends CrudRepository<User, String> {
 	@Override
 	List<User> findAll();
 
-    User findByEmailId(String email);
-
     //specify a method that returns User by finding it by email id
-	
+	User findTopByEmailId(String email);
+
 
 }

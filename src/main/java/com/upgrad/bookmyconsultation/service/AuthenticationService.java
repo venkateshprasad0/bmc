@@ -41,7 +41,7 @@ public class AuthenticationService {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public AuthorizedUser authenticate(final String email, final String password) throws ApplicationException {
 
-		User user = userRepository.findByEmailId(email);
+		User user = userRepository.findTopByEmailId(email);
 		if (user == null) throw new AuthenticationFailedException(UserErrorCode.USR_002);
 
 		final String encryptedPassword = passwordCryptographyProvider.encrypt(password, user.getSalt());

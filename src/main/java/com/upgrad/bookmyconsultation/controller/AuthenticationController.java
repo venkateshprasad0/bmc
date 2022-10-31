@@ -33,6 +33,7 @@ public class AuthenticationController {
 	@PostMapping(path = "/login")
 	public ResponseEntity<AuthorizedUser> login(@RequestHeader final String authorization) throws ApplicationException {
 		final BasicAuthDecoder basicAuthDecoder = new BasicAuthDecoder(authorization);
+
 		final AuthorizedUser authorizedUser = authenticationService.authenticate(basicAuthDecoder.getEmail(), basicAuthDecoder.getPassword());
 		return ResponseEntity.status(HttpStatus.OK).body(authorizedUser);
 	}
